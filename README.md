@@ -11,9 +11,12 @@ apply`, and then enable rapid addition of new services.
 ## Getting Started
 
 1. Fork this repo
-2. Clone your fork
-3. `export SITE_NAME=aws-test`
-3. `cp terraform/platforms/aws/terraform.tfvars.example terraform/sites/${SITE_NAME}/terraform.tfvars`
-4. Review and update sites/${SITE_NAME}/terraform.tfvars
-5. Run `terraform plan --var-file=terraform/sites/${SITE_NAME}/terraform.tfvars terraform/platforms/aws`
-6. Run `terraform apply --var-file=terraform/sites/${SITE_NAME}/terraform.tfvars terraform/platforms/aws`
+1. Clone your fork
+1. Set a name for your site: `export SITE_NAME=site-test`
+1. Choose your platform: `export PLATFORM=aws` or `export PLATFORM=xenserver`
+1. Create a site directory for assets: `mkdir terraform/sites/${SITE_NAME}`
+1. `cp terraform/platforms/${PLATFORM}/terraform.tfvars.example terraform/sites/${SITE_NAME}/terraform.tfvars`
+1. Review and update sites/${SITE_NAME}/terraform.tfvars
+1. Create your TF environment: `terraform init terraform/platforms/${PLATFORM}`
+1. Run `terraform plan --var-file=terraform/sites/${SITE_NAME}/terraform.tfvars terraform/platforms/${PLATFORM}`
+1. Run `terraform apply --var-file=terraform/sites/${SITE_NAME}/terraform.tfvars terraform/platforms/${PLATFORM}`
